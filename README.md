@@ -23,12 +23,12 @@ with:
   program-id: prgCo6HJ2bP8xPJ3zwVnfVbqhBbBgY8t7moykr7wzCx
   buffer-authority: 7CLWzQ3pGwk9TCBnNFVq2p79NGQ8WyhSrrjfXiPN4L9m
 
-## Requirements
+The action writes the deploy keypair to $RUNNER_TEMP and removes it (together with the generated buffer keypair and temporary output files) in an always() cleanup step.
 
-The runner must provide `anchor`, `solana`, and `solana-keygen` on `PATH`.
+Requirements
+The runner must provide anchor, solana, and solana-keygen on PATH.
 
-## Development
+Development
+This is a composite action, so there is no build or packaging step. Edit action.yml directly.
 
-This is a composite action, so there is no build or packaging step. Edit `action.yml` directly.
-
-See the [actions tab](https://github.com/Squads-Protocol/solana-buffer-deploy-action/actions) for runs of this action! :rocket:
+See the actions tab for runs of this action! :rocket:
