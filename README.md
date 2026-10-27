@@ -1,21 +1,21 @@
 # Solana Buffer Deploy Github Action
 
 <p align="center">
-  <a href="https://github.com/actions/javascript-action/actions"><img alt="javscript-action status" src="https://github.com/actions/javascript-action/workflows/units-test/badge.svg"></a>
+  <a href="https://github.com/Squads-Protocol/solana-buffer-deploy-action/actions"><img alt="action status" src="https://github.com/Squads-Protocol/solana-buffer-deploy-action/workflows/units-test/badge.svg"></a>
 </p>
 
 <div align="center">
     <img src="./assets/banner.png" />
 </div>
 
-Use this github action to automate Solana program deployments straight from Github. Use in conjunction with https://github.com/cardinal-labs/squads-program-upgrade.
+Use this github action to automate Solana program deployments straight from Github. Use in conjunction with https://github.com/Squads-Protocol/squads-program-upgrade.
 
 ## Usage
 
-You can now consume the action by referencing the v1 branch
+You can consume the action by referencing the `v0.1.6` tag:
 
 ```yaml
-uses: actions/solana-buffer-deploy@v0.1.6
+uses: Squads-Protocol/solana-buffer-deploy-action@v0.1.6
 with:
   network: https://api.devnet.solana.com
   program: my_program
@@ -24,22 +24,14 @@ with:
   buffer-authority: 7CLWzQ3pGwk9TCBnNFVq2p79NGQ8WyhSrrjfXiPN4L9m
 ```
 
-## Package for distribution
+The action writes the deploy keypair to `$RUNNER_TEMP` and removes it (together with the generated buffer keypair and temporary output files) in an `always()` cleanup step.
 
-GitHub Actions will run the entry point from the action.yml.
+## Requirements
 
-Packaging assembles the code into one file in the dist folder that can be checked in to Git, enabling fast and reliable execution and preventing the need to check in node_modules.
+The runner must provide `anchor`, `solana`, and `solana-keygen` on `PATH`.
 
-Run prepare
+## Development
 
-```bash
-yarn prepare
-```
+This is a composite action, so there is no build or packaging step. Edit `action.yml` directly.
 
-Since the packaged index.js is run from the dist folder.
-
-```bash
-git add dist
-```
-
-See the [actions tab](https://github.com/actions/solana-buffer-deploy/actions) for runs of this action! :rocket:
+See the [actions tab](https://github.com/Squads-Protocol/solana-buffer-deploy-action/actions) for runs of this action! :rocket:
