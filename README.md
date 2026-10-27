@@ -17,14 +17,11 @@ You can consume the action by referencing the `v0.1.6` tag:
 ```yaml
 uses: Squads-Protocol/solana-buffer-deploy-action@v0.1.6
 with:
-  network: https://api.devnet.solana.com
+  network: [https://api.devnet.solana.com](https://api.devnet.solana.com)
   program: my_program
   keypair: ${{ env.DEPLOYER_KEYPAIR }}
   program-id: prgCo6HJ2bP8xPJ3zwVnfVbqhBbBgY8t7moykr7wzCx
   buffer-authority: 7CLWzQ3pGwk9TCBnNFVq2p79NGQ8WyhSrrjfXiPN4L9m
-```
-
-The action writes the deploy keypair to `$RUNNER_TEMP` and removes it (together with the generated buffer keypair and temporary output files) in an `always()` cleanup step.
 
 ## Requirements
 
